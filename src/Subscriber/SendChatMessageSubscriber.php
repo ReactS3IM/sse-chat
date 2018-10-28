@@ -67,13 +67,14 @@ class SendChatMessageSubscriber implements EventSubscriberInterface
             ],
             http_build_query([
                 'topic' => 'general',
-                'data'  => json_encode(['foo' => 'bar']),
+                'data'  => json_encode([
+                    'date'    => (new \DateTimeImmutable)->format('c'),
+                    'author'  => $sendChatMessage->author,
+                    'message' => $sendChatMessage->message,
+                ]),
             ])
         );
-        \dump($request);
-        \dump($request->getBody()->getContents());
-        \dump($this->httpClient->sendRequest($request));
-
+        $this->httpClient->sendRequest($request);
 
         $event->setResponse(new JsonResponse(null, 204));
     }

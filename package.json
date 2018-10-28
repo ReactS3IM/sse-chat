@@ -1,0 +1,31 @@
+{
+    "devDependencies": {
+        "@symfony/webpack-encore": "^0.20.0",
+        "webpack-notifier": "^1.6.0"
+    },
+    "license": "UNLICENSED",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server --host 0.0.0.0 --port 8010",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production"
+    },
+    "dependencies": {
+        "@material-ui/core": "^3.3.2",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-preset-es2017": "^6.24.1",
+        "babel-preset-react": "^6.24.1",
+        "babel-preset-stage-1": "^6.24.1",
+        "babel-preset-stage-2": "^6.24.1",
+        "babel-preset-stage-3": "^6.24.1",
+        "node-sass": "^4.9.4",
+        "react": "^16.6.0",
+        "react-dom": "^16.6.0",
+        "react-redux": "^5.1.0",
+        "redux": "^4.0.1",
+        "redux-logger": "^3.0.6",
+        "redux-thunk": "^2.3.0",
+        "sass-loader": "^7.1.0"
+    }
+}
