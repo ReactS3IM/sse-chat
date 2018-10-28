@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="test"></div>
+    <script>
+        const url = new URL('http://localhost/hub');
+        url.searchParams.append('topic', 'general');
+        const eventSource = new EventSource(url);
+
+        eventSource.onmessage = e => console.log(e);
+        eventSource.addEventListener('message', e => console.log(e));
+    </script>
+{% endblock %}

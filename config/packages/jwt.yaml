@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Lcobucci\JWT\Signer:
+        class:  Lcobucci\JWT\Signer\Hmac\Sha256
+        public: true
