@@ -17,7 +17,7 @@ services:
 
     mercure:
         image:    dunglas/mercure
-        ports:    [ '8059:80' ]
+        ports:    [ '58' ]
         env_file: .env
         networks: [ chat ]
 
