@@ -11,6 +11,7 @@ use Http\Client\HttpClient;
 use Http\Message\MessageFactory;
 use Lcobucci\JWT\Builder;
 use Lcobucci\JWT\Signer;
+use Ramsey\Uuid\Uuid;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
@@ -68,6 +69,7 @@ class SendChatMessageSubscriber implements EventSubscriberInterface
             http_build_query([
                 'topic' => 'general',
                 'data'  => json_encode([
+                    'id'      => Uuid::uuid4(),
                     'date'    => (new \DateTimeImmutable)->format('c'),
                     'author'  => $sendChatMessage->author,
                     'message' => $sendChatMessage->message,

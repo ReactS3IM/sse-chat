@@ -1,8 +1,9 @@
 import {combineReducers} from 'redux';
-
-const chat = (state = {}, action) => {
-    return state;
-};
+import messages from './messages';
 
 
-export default combineReducers({chat});
+export default combineReducers({
+    chat: combineReducers({
+        messages,
+    }),
+});

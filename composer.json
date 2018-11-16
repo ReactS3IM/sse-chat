@@ -9,6 +9,7 @@
         "api-platform/api-pack": "^1.1",
         "lcobucci/jwt": "^3.2",
         "php-http/httplug-pack": "^1.1",
+        "ramsey/uuid": "^3.8",
         "symfony/console": "*",
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "*",

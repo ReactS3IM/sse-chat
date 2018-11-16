@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+    app:
+        env_file: ./docker/prod/env.prod
+        image:    $DOCKER_IMAGE_APP
+        build:    { context: './', dockerfile: docker/prod/php.Dockerfile }
+        links:    [ database, mongo ]
+        networks: [ chat ]
+
+    nginx:
+        image:    $DOCKER_IMAGE_NGINX
+        build:    { context: './', dockerfile: docker/prod/nginx.Dockerfile }
+        ports:    [ '8058:80' ]
+        links:    [ app ]
+        networks: [ chat ]
+
+    mercure:
+        image:    dunglas/mercure
+        ports:    [ '8059:80' ]
+        env_file: .env
+        networks: [ chat ]
+
+networks:
+    chat: ~
