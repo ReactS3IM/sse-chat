@@ -33,8 +33,7 @@ COPY ./docker/www.conf /usr/local/etc/php-fpm.d/www.conf
 
 WORKDIR /www
 
-RUN ssh-keyscan -t rsa bitbucket.org >> ~/.ssh/known_hosts \
- && composer install --no-dev --no-interaction --prefer-dist --no-scripts \
+RUN composer install --no-dev --no-interaction --prefer-dist --no-scripts \
  && php bin/console cache:warmup --env=prod --no-debug || true \
  && php bin/console cache:warmup --env=prod --no-debug \
  && php bin/console assets:install public

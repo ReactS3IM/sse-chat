@@ -12,7 +12,7 @@ class App extends Component {
     };
 
     componentDidMount() {
-        const url = new URL('http://192.168.101.101/hub');
+        const url = new URL('http://chat.1z1.fr/hub');
         url.searchParams.append('topic', 'general');
         const eventSource = new EventSource(url);
 
