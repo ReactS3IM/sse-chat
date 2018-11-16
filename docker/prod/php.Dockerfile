@@ -33,6 +33,13 @@ COPY ./docker/www.conf /usr/local/etc/php-fpm.d/www.conf
 
 WORKDIR /www
 
+ENV APP_ENV=prod
+ENV APP_SECRET=b348acaf7a64761b3e2debcdb222951d
+
+ENV TRUSTED_PROXIES=10.0.0.0/8,127.0.0.1
+ENV TRUSTED_HOSTS=127.0.0.1,localhost,chat.1z1.fr
+
+
 RUN composer install --no-dev --no-interaction --prefer-dist --no-scripts \
  && php bin/console cache:warmup --env=prod --no-debug || true \
  && php bin/console cache:warmup --env=prod --no-debug \
