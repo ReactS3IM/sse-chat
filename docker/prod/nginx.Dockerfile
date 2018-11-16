@@ -1,4 +1,4 @@
-FROM docker.un-zero-un.net/otaa_app AS app
+FROM docker.un-zero-un.net/chat_app AS app
 
 FROM nginx:1.13-alpine
 
