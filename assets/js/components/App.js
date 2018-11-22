@@ -11,7 +11,8 @@ class App extends Component {
         chatMessageReceived: PropTypes.func.isRequired,
     };
 
-    componentDidMount() {
+    async componentDidMount() {
+        await fetch('http://chat.1z1.fr/', {credentials: 'include'});
         const url = new URL('http://chat.1z1.fr/hub');
         url.searchParams.append('topic', 'general');
         const eventSource = new EventSource(url);

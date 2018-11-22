@@ -16,9 +16,9 @@ services:
         networks: [ chat ]
 
     mercure:
+        env_file: ./docker/prod/env.prod
         image:    dunglas/mercure
         ports:    [ '8059:80' ]
-        env_file: .env
         networks: [ chat ]
 
 networks:

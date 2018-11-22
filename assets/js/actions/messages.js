@@ -7,7 +7,7 @@ export const CHAT_MESSAGE_SEND_ERROR = 'chat_message.send_error';
 export const sendChatMessage = (author, message) => async dispatch => {
     dispatch({type: CHAT_MESSAGE_SEND});
     try {
-        await fetch('/api/chat_message/send', {
+        await fetch('http://chat.1z1.fr/api/chat_message/send', {
             method:  'POST',
             headers: {
                 'Accept':       'application/ld+json',
