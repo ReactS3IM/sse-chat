@@ -73,6 +73,7 @@ class SendChatMessageSubscriber implements EventSubscriberInterface
                     'date'    => (new \DateTimeImmutable)->format('c'),
                     'author'  => $sendChatMessage->author,
                     'message' => $sendChatMessage->message,
+                    'channel' => $sendChatMessage->channel,
                 ]),
             ])
         );
