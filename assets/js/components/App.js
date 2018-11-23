@@ -1,14 +1,16 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {chatMessageReceived} from '../actions/messages';
 import {bindActionCreators} from 'redux';
 import MessageList from './MessageList';
 import MessageForm from './MessageForm';
+import RegisterUserDialog from './RegisterUserDialog';
 
 class App extends Component {
     static propTypes = {
         chatMessageReceived: PropTypes.func.isRequired,
+        hasUser:             PropTypes.bool.isRequired,
     };
 
     async componentDidMount() {
@@ -23,15 +25,23 @@ class App extends Component {
     render() {
         return (
             <div>
-                <MessageList />
-                <MessageForm />
+                {this.props.hasUser ? (
+                    <Fragment>
+                        <MessageList/>
+                        <MessageForm/>
+                    </Fragment>
+                ) : (
+                    <RegisterUserDialog />
+                )}
             </div>
         );
     }
 }
 
 export default connect(
-    state => ({}),
+    state => ({
+        hasUser: !!state.user.email,
+    }),
     dispatch => ({
         chatMessageReceived: bindActionCreators(chatMessageReceived, dispatch),
     }),

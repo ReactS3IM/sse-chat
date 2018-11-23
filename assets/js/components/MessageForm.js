@@ -39,8 +39,16 @@ class MessageForm extends Component {
 }
 
 export default connect(
-    state => ({}),
+    state => ({
+        author: state.user.email
+    }),
     dispatch => ({
-        sendChatMessage: message => dispatch(sendChatMessage('yohan@un-zero-un.fr', message)),
+        sendChatMessage: author => message => dispatch(sendChatMessage(author, message)),
+    }),
+    (stateProps, dispatchProps, ownProps) => ({
+        ...stateProps,
+        ...dispatchProps,
+        ...ownProps,
+        sendChatMessage: dispatchProps.sendChatMessage(stateProps.author),
     })
 )(MessageForm);

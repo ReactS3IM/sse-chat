@@ -17,9 +17,12 @@ if (process.env.NODE_ENV !== 'production') {
 }
 const store = createStore(reducer, applyMiddleware(...middlewares));
 
+window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true;
+
 render(
     <Provider store={store}>
         <App/>
     </Provider>,
     document.getElementById('main'),
 );
+
